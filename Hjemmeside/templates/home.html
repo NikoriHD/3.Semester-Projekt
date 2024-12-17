@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home</title>
+</head>
+<body>
+    <h1>Welcome, {{ user['username'] }}!</h1>
+
+    <form method="POST">
+        <label for="ip_address">Enter ESP32 IP address:</label>
+        <input type="text" id="ip_address" name="ip_address" required><br><br>
+
+        <label for="alarm_time">Set Alarm Time (HH:MM):</label>
+        <input type="text" id="alarm_time" name="alarm_time" required><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <a href="{{ url_for('index') }}">Log ud</a>
+</body>
+</html>

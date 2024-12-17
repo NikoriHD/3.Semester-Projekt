@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITAdmin Home</title>
+</head>
+<body>
+    <h1>Velkommen, {{ username }}!</h1>
+    <h2>Alle Brugere</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Brugernavn</th>
+                <th>Alarm Tid</th>
+                <th>Stop Tid</th>
+                <th>Handlinger</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user['username'] }}</td>
+                <td>{{ user['alarm_time'] }}</td>
+                <td>{{ user['stop_time'] }}</td>
+                <td>
+                    <!-- Slette bruger-knap -->
+                    <form method="POST" action="{{ url_for('delete_user', username=user['username']) }}">
+                        <button type="submit" onclick="return confirm('Er du sikker på, at du vil slette brugeren {{ user['username'] }}?')">Slet</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('index') }}">Log ud</a>
+</body>
+</html>
