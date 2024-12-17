@@ -7,8 +7,8 @@ import urequests  # Til HTTP-anmodninger
 import ujson  # JSON-formatering
 
 # WiFi-opsætning
-wifi_ssid = "TP-Link_F70A"
-wifi_password = "Team1329"
+wifi_ssid = "INDSÆT NETVÆRKSNAVN"
+wifi_password = "INDÆST PASSWORD"
 
 wifi = network.WLAN(network.STA_IF)
 wifi.active(True)
@@ -27,7 +27,7 @@ except Exception as e:
     print(f"Fejl ved synkronisering af tid: {e}")
 
 # Flask-serverens URL
-flask_url = "http://192.168.0.226:5000/update_stop_time"
+flask_url = "INDSÆT FLASK URL"
 
 # Opsætning af hardware
 LED_PIN = 25
