@@ -5,7 +5,7 @@ wifi = network.WLAN(network.STA_IF)
 wifi.active(True)
 
 # Forbind til dit WiFi-netværk
-wifi.connect('TP-Link_F70A', 'Team1329')
+wifi.connect('NETVÆRKS NAVN', 'KODE')
 
 # Vent på, at forbindelsen bliver etableret
 while not wifi.isconnected():
